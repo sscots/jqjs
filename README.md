@@ -1,3 +1,7 @@
+THIS IS A COPY of https://github.com/mwh/jqjs but provides it as an npm package for use with npm
+
+---
+
 jqjs is a JavaScript implementation of the [jq] query language. It
 implements the core language features in pure JavaScript.
 
