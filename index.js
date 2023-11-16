@@ -1807,6 +1807,12 @@ const functions = {
                 nameType(ret), nameType(input[i]))
         yield ret
     },
+    'round/0': function* (input) {
+        yield Math.round(input)
+    },
+    'round/1': function* (input, conf, args) {
+        yield input.toFixed(args[0].value)
+    },
     'tonumber/0': function*(input) {
         yield Number.parseFloat(input)
     },
