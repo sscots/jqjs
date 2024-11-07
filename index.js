@@ -41,6 +41,10 @@ function isDigit(c) {
     return (c >= '0' && c <= '9')
 }
 
+function isQuote(c) {
+    return (c === '"' || c === "'");
+}
+
 function prettyPrint(val, indent='', step='    ', LF='\n') {
     let SP = step ? ' ' : ''
     if (typeof val == 'undefined')
@@ -251,12 +255,13 @@ function tokenise(str, startAt=0, parenDepth) {
             ret.push({type: 'number', value: Number.parseFloat(tok), location})
                 i--
         } else if (c == '.') {
-            let d = str[i+1]
-            if (isAlpha(d)) {
+            let d = str[i + 1];
+            if (isAlpha(d) || isQuote(d)) {
                 i++
                 let tok = ''
-                while (isAlpha(str[i]) || isDigit(str[i]))
+                while (isAlpha(str[i]) || isDigit(str[i]) || isQuote(str[i]))
                     tok += str[i++]
+                tok = tok.split('"').join('').split("'").join('') // Remove quotes
                 ret.push({type: 'identifier-index', value: tok, location})
                 i--
             } else if (d == '[') {
@@ -1870,6 +1875,12 @@ const functions = {
         for (let s of args[0].apply(input, conf))
             yield a.join(s)
     },
+    'test/1': function* (input, conf, args) {
+        const regex = new RegExp(args[0].value);
+        const isValid = regex.test(input);
+
+        if (isValid) yield [input]; 
+    }
 }
 
 // Implements the containment algorithm, returning whether haystack

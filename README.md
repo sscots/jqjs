@@ -1,5 +1,9 @@
 THIS IS A COPY of https://github.com/mwh/jqjs but provides it as an npm package for use with npm
 
+In addition, this package contains the additional features below that do not exist in the original
+- round() 
+- test() (Regular Expressions)
+
 ---
 
 jqjs is a JavaScript implementation of the [jq] query language. It
@@ -47,6 +51,7 @@ support.
         - [x] range/1, range/2, range/3
         - [x] any/0, any/1, any/2, all/0, all/1, all/2
         - [x] contains, inside
+        - [x] round
         - [ ] the others
     - [ ] User-defined functions
     - [ ] Mathematical functions
@@ -61,7 +66,7 @@ support.
 - [x] Alternative operator: `//`
 - [ ] Try-catch: `try EXP catch EXP`
   - [x] Error Suppression operator `?`
-- [ ] Regular expressions
+- [x] Regular expressions `test("^[0-9]")`
 - [x] Variable/Symbolic Binding Operator `... as $identifier | ...`
 - [x] Reduce: `reduce .[] as $item (0; . + $item)`
 - [ ] foreach: `foreach .[] as $item (...;...;...)`
