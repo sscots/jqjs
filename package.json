@@ -1,6 +1,6 @@
 {
   "name": "@sscots/jqjs",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "jqjs is a JavaScript implementation of the jq query language. It implements the core language features in pure JavaScript.",
   "main": "index.js",
   "repository": {
