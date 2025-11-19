@@ -18,8 +18,5 @@
   "bugs": {
     "url": "https://github.com/sscots/jqjs/issues"
   },
-  "homepage": "https://github.com/sscots/jqjs#readme",
-  "dependencies": {
-    "@sscots/jqjs": "file:"
-  }
+  "homepage": "https://github.com/sscots/jqjs#readme"
 }
